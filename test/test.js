@@ -16,6 +16,15 @@ test("Can parse the sample", async (t) => {
   t.is(tree.name, "PhyD3 demo tree");
 });
 
+test("Can parse a tree with no id attributes", async (t) => {
+  const text = await readFile("test/data/noids.xml", { encoding: "utf8" });
+  const xml = new DOMParser().parseFromString(text);
+  const tree = phyloxml.parse(xml);
+  t.is(tree.branchset[0].id, "_1");
+  t.is(tree.branchset[0].name, "25_BRAFL");
+  t.is(phyloxml.cid, 1);
+});
+
 test("Can generate a compatible 'new-style' table", async (t) => {
   const text = await readFile("test/data/sample.xml", { encoding: "utf8" });
   const xml = new DOMParser().parseFromString(text);
@@ -33,6 +42,29 @@ test("Can generate a compatible 'new-style' table", async (t) => {
       description: "Contains examples of commonly used elements",
       rooted: true,
       parent: 1,
+    },
+  ]);
+});
+
+test("Can generate a compatible 'new-style' table with no id attributes", async (t) => {
+  const text = await readFile("test/data/all-nodes-named.xml", {
+    encoding: "utf8",
+  });
+  const xml = new DOMParser().parseFromString(text);
+  const tree = phyloxml.parse(xml);
+  const table = makeCompatTable(tree);
+
+  t.is(6, table.nodes.length);
+  t.is(2, table.nodes.filter((n) => n.node === "Clade").length);
+  t.is(4, table.nodes.filter((n) => n.node === "Taxa").length);
+
+  t.is(5, table.edges.length);
+  t.deepEqual(table.metadata, [
+    {
+      name: undefined,
+      description: undefined,
+      rooted: true,
+      parent: 7,
     },
   ]);
 });

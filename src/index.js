@@ -53,7 +53,7 @@ export const makeCompatTable = function (parsed) {
         name: parsed.name,
         description: parsed.description,
         rooted: parsed.rooted === "true",
-        parent: Number.parseInt(parsed.branchset[0].id),
+        parent: parseId(parsed.branchset[0].id),
       },
     ],
   };
@@ -79,7 +79,7 @@ const flattenNodes = function (branchset) {
 
   const node = {
     name: branchset.name || "",
-    ref: Number.parseInt(branchset.id, 10),
+    ref: parseId(branchset.id),
     node: branchset.branchset.length > 0 ? "Clade" : "Taxa",
     attributes: attrs,
   };
@@ -147,14 +147,20 @@ const parseAttr = function (val) {
 };
 
 const flattenEdges = function (branchset) {
-  const parent = Number.parseInt(branchset.id, 10);
+  const parent = parseId(branchset.id);
   const branches = branchset.branchset.map((child) => {
     return {
       from: parent,
-      to: Number.parseInt(child.id),
+      to: parseId(child.id),
       len: Number.parseFloat(child.branchLength),
     };
   });
 
   return branches.concat(branchset.branchset.flatMap(flattenEdges));
+};
+
+const parseId = (text) => {
+  const re = /_?(\d)/;
+  const match = re.exec(text); // The parser will sometimes prefix with underscore.
+  return match[1] | 0;
 };
