@@ -1,3 +1,5 @@
+![Tests](https://github.com/vibbits/phyd3-parser-compat/actions/workflows/test.yml/badge.svg)
+
 # phyd3-parser-compat
 
 A compatability library implementing [PhyloXML](phyloxml.org/) parsing from the legacy version of [PhyD3](https://phyd3.bioinformatics-core.sites.vib.be).
