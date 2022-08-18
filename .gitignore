@@ -1,0 +1,7 @@
+# Node packaging
+
+dist/
+node_modules/
+
+# Editor backup files
+*~

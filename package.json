@@ -1,0 +1,22 @@
+{
+  "name": "@vibbioinfocore/phyd3-parser-compat",
+  "version": "0.0.1",
+  "description": "Legacy PhyD3 parser compatability library",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --minify --sourcemap --target=es6 --format=esm --outfile=dist/index.js",
+    "test": "ava"
+  },
+  "author": "VIB Bioinformatics Core Faciliy <bits@vib.be>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^4.3.1",
+    "esbuild": "^0.14.49",
+    "xmldom": "^0.6.0"
+  },
+  "homepage": "https://phyd3.bioinformatics-core.sites.vib.be",
+  "bugs": {
+    "url": "https://github.com/vibbits/phyd3-parser-compat/issues"
+  }
+}
