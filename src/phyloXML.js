@@ -499,6 +499,7 @@ var parseLabel = function (g) {
 export var cid = 0;
 
 export var parse = function (xml) {
+  cid = 0;
   var phylotree = {
     branchset: [],
     properties: [],
