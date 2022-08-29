@@ -14,13 +14,13 @@ export * as phyloxml from "./phyloXML.js";
  * Node {
  *   name: string; // Name of this Taxa or Clade
  *   ref: number; // Unique identifier (used to designate edge endpoints).
- *   node: 'Clade' | 'Taxa' | 'Hybrid' | 'LateralGeneTransfer' | 'Recombination';
+ *   event: 'Clade' | 'Taxa' | 'Hybrid' | 'LateralGeneTransfer' | 'Recombination';
+ *   length: number; // branch length
  *   attributes: Map<string, Attribute>;
  * }
  * Edge {
- *   from: number; // unique ref of the source node
- *   len: number; // branch length
- *   to: number; // unique ref of the sink node
+ *   source: number; // unique ref of the source node
+ *   sink: number; // unique ref of the sink node
  * }
  * NumericAttribute {
  *   tag: 'numeric' | 'text' | 'bool' | 'list' | 'mapping'; // data type for this attribute
@@ -77,10 +77,13 @@ const flattenNodes = function (branchset) {
       }
     });
 
+  const length = Number.parseFloat(branchset.branchLength);
+
   const node = {
     name: branchset.name || "",
     ref: parseId(branchset.id),
     node: branchset.branchset.length > 0 ? "Clade" : "Taxa",
+    length: isNaN(length) ? 0 : length,
     attributes: attrs,
   };
 
@@ -150,9 +153,8 @@ const flattenEdges = function (branchset) {
   const parent = parseId(branchset.id);
   const branches = branchset.branchset.map((child) => {
     return {
-      from: parent,
-      to: parseId(child.id),
-      len: Number.parseFloat(child.branchLength),
+      source: parent,
+      sink: parseId(child.id),
     };
   });
 
