@@ -1,6 +1,6 @@
 {
   "name": "@vibbioinfocore/phyd3-parser-compat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Legacy PhyD3 parser compatability library",
   "type": "module",
   "main": "dist/index.js",
