@@ -64,7 +64,7 @@ test("Can generate a compatible 'new-style' table with no id attributes", async 
       name: undefined,
       description: undefined,
       rooted: true,
-      parent: 7,
+      parent: 6,
     },
   ]);
 });
