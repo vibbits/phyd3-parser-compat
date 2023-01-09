@@ -1,4 +1,5 @@
 ![Tests](https://github.com/vibbits/phyd3-parser-compat/actions/workflows/test.yml/badge.svg)
+![NPM](https://img.shields.io/npm/v/@vibbioinfocore/phyd3-parser-compat)
 
 # phyd3-parser-compat
 
