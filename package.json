@@ -18,5 +18,9 @@
   "homepage": "https://phyd3.bioinformatics-core.sites.vib.be",
   "bugs": {
     "url": "https://github.com/vibbits/phyd3-parser-compat/issues"
-  }
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.js.map"
+  ]
 }
