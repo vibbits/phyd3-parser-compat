@@ -12,7 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "5.1.1",
-    "esbuild": "0.17.5",
+    "esbuild": "0.17.10",
     "xmldom": "0.6.0"
   },
   "homepage": "https://phyd3.bioinformatics-core.sites.vib.be",
