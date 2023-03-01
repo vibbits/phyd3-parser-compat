@@ -11,7 +11,7 @@
   "author": "VIB Bioinformatics Core Faciliy <bits@vib.be>",
   "license": "MIT",
   "devDependencies": {
-    "ava": "5.1.1",
+    "ava": "5.2.0",
     "esbuild": "0.17.10",
     "xmldom": "0.6.0"
   },
