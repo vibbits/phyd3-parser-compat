@@ -5,7 +5,7 @@
 import test from "ava";
 
 import { readFile } from "node:fs/promises";
-import { DOMParser } from "xmldom";
+import { DOMParser } from "@xmldom/xmldom";
 
 import { phyloxml, makeCompatTable } from "../src/index.js";
 
