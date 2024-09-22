@@ -13,7 +13,7 @@
   "devDependencies": {
     "@xmldom/xmldom": "0.8.10",
     "ava": "6.1.3",
-    "esbuild": "0.23.1"
+    "esbuild": "0.24.0"
   },
   "homepage": "https://phyd3.bioinformatics-core.sites.vib.be",
   "bugs": {
